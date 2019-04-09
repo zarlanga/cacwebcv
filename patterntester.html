@@ -6,8 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Patterns</title>
     <style>
+
+        body, input{
+            text-align: center;
+        }
+
         input{
             display:block;
+            margin:auto;
             
         }
         .test{
@@ -33,10 +39,10 @@
 <body>
     
     <p>Ingrese expresion regular</p>
-    <input oninput="aplicarRegEx()" type="text" id="entrada"></input>
+    <input oninput="aplicarRegEx()" type="text" id="entrada" value="[p]{5}"></input>
     <br>
     <p>Ingrese texto para verificar</p>
-    <input type="text" class="test" id="salida" pattern="[k]"></input>
+    <input type="text" class="test" id="salida" pattern="[p]{5}" value="ppppp"></input>
     <p id="pepe"></p>
 
 </body>
