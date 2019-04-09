@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Patterns</title>
+    <style>
+        input{
+            display:block;
+        }
+        .test:valid{
+        background-color:blue;
+        }
+        .test:invalid{
+        background-color:red;
+        }
+        </style>
+        <script>
+            function aplicarRegEx(){
+                var exp=document.getElementById("entrada").value;
+                document.getElementById("salida").setAttribute("pattern", exp);
+                //document.getElementById("pepe").innerHTML += "-"
+
+            }
+        </script>
+</head>
+<body>
+    
+    <p>ingrese nro de telefono con formato (xxx)xxxx-xxxx</p>
+    <input type="text" class="test" pattern="[(][0-9]{3}[)][0-9]{4}[-][0-9]{4}"></input>
+
+    <p>batata</p>
+    <input type="text" class="test" pattern="([P][e][r][o][n])|([u][b][a][l][d][i][n][i])|([e]{5})"></input>
+
+    <p>ingrese expresion regular</p>
+    <input oninput="aplicarRegEx()" type="text" id="entrada"></input>
+    
+    <input type="text" class="test" id="salida" pattern="[k]"></input>
+    <p id="pepe"></p>
+
+
+</body>
+</html>
