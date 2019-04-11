@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0049)https://zarlanga.github.io/cacwebcv/Telefono.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Patterns</title>
     <style>
         input{
             display:block;
+            color:black;
+        }
+        .test {
             color:white;
         }
         .test:valid{
@@ -29,17 +32,17 @@
 <body>
     
     <p>ingrese nro de telefono con formato (xxx)xxxx-xxxx</p>
-    <input type="text" class="test" pattern="[(][0-9]{3}[)][0-9]{4}[-][0-9]{4}"></input>
+    <input type="text" class="test" pattern="[(][0-9]{3}[)][0-9]{4}[-][0-9]{4}">
 
     <p>batata</p>
-    <input type="text" class="test" pattern="([P][e][r][o][n])|([u][b][a][l][d][i][n][i])|([e]{5})"></input>
+    <input type="text" class="test" pattern="([P][e][r][o][n])|([u][b][a][l][d][i][n][i])|([e]{5})">
 
     <p>ingrese expresion regular</p>
-    <input oninput="aplicarRegEx()" type="text" id="entrada"></input>
+    <input oninput="aplicarRegEx()" type="text" id="entrada">
     <p>ingrese texto para verificar</p>
-    <input type="text" class="test" id="salida" pattern="[k]"></input>
+    <input type="text" class="test" id="salida" pattern="pepe">
     <p id="pepe"></p>
 
 
-</body>
-</html>
+
+</body></html>
