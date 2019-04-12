@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animacion, Transformacion y Transicion</title>
+    <style>
+
+        /*test*/
+        #tetete {
+            background-color: blueviolet;
+            font-size: 40px;
+        }
+        #bata {
+            width:400px;
+            height: 300px;
+            background-color: blue;
+            float: left;
+            transition: transform, 3s;
+            
+        }
+        
+        #bata:hover {
+            transform:scale(0.7,3);
+        }
+        /*menuuuuu*/
+        ul, .ddhead{
+            padding:0;
+        }
+        nav a{
+            color:black;
+            text-decoration: none;
+        }
+        nav li{
+             padding:15px;
+             display:inline-block;
+             background-color: darkcyan;
+             transition: background-color 1s, color 1s;
+             
+        }
+
+        .dropdown{
+            position: absolute;
+            display:none;
+        }
+        .dropdown li{
+            display: block;
+
+
+        }
+
+        .ddhead:hover .dropdown{
+            display:block;
+            z-index: 4;
+        }
+
+        nav li:hover{
+            background-color: darkslateblue ;
+            color:white;
+        }
+
+
+
+        /*.navitem{
+            padding:15px;
+            display:inline-block;
+            background-color: darkcyan;
+            transform:scale(0,1);
+            transition: transform, 3s;
+        }
+        .submenu {
+            display:inline-block;
+            transform:scale(0,1);
+            transition: transform, 3s;
+        
+        }
+
+        nav:hover .navitem, nav:hover .submenu{
+            transform:scale(1,1);
+
+        }
+        .boton{
+            display:inline-block;
+            padding:15px;
+            background-color: darkcyan;
+        }*/
+
+
+
+        /* general */
+        .conte{
+            background-color: yellow;
+            width: 100vw;
+            height: 100vh;
+            /*width:1000px;
+            height: 600px;*/
+            margin:40px 0 0 0;
+        }
+        .cuadro{
+            background-color: red;
+            width:200px;
+            height:200px;
+            
+        }
+
+        /* contenedores fijos*/
+
+        #c1 {
+            /*transform: translateX(500px), translateY(300px);
+            margin:300px 0 500px 0;
+            position:relative;  
+            top:300px;
+            left:500px;*/
+            transform: translate(50vw, 50vh);
+            
+        }
+        #c2 {
+            /*transform: translateX(500px), translateY(300px);
+            margin:300px 0 500px 0;
+            position:relative;  
+            left:375px;
+            top:250px;*/
+            transform: translate(calc(50vw - 100px ), calc( 50vh - 100px))
+        }
+
+        /* contenedor animado*/
+
+        #cAnimado{
+            animation: primerAnimacion 3s infinite alternate;
+            /*animation-fill-mode: forwards;*/
+            
+        }
+
+        @keyframes primerAnimacion{
+            0%{transform: translate(0,0); }
+            100%{transform: translate(calc(50vw - 100px ), calc( 50vh - 100px));}
+            /*100%{margin-left: calc(50% - 250px ); margin-top: calc(50vh ) ; }*/
+        }
+
+        /*link up*/
+        #goUp {
+            float:right;
+            /*width: 100vw;
+            position:absolute;
+            text-align: right;*/
+        }
+    </style>
+
+</head>
+
+<nav id="navar">
+
+    <ul>
+        <a href="#s1"><li>Animacion</li></a>
+        <a href="#"><li class="ddhead">
+            <ul >
+                 <li>Cuadros Estaticos</li>
+                <div class="dropdown">
+                    <a href="#s2-1"><li>Cuadro 1</li></a>
+                    <a href="#s2-2"><li>Cuadro 2</li></a>
+                    <a href="#s2-3"><li>Cuadro 3</li></a>
+                </div>
+            </ul>
+
+        </li></a>
+        <a href="#s2-1"></a>
+        <a href="#s3"><li>Experimentos</li></a>
+        <a href="#"><li class="ddhead">
+            <ul>
+                <li>Batata</li>
+                    <div class="dropdown">
+                        <a href="#"><li>BATATA 1</li></a>
+                        <a href="#"><li>BATATA 2</li></a>
+                        <a href="#"><li>BATATA 3</li></a>
+                    </div>
+            </ul>
+        </li></a>
+        <a href="#"><li class="ddhead">
+            <ul>
+                <li>Patata</li>
+                    <div class="dropdown">
+                        <a href="#"><li>PATATA 1</li></a>
+                        <a href="#"><li>PATATA 2</li></a>
+                        <a href="#"><li>PATATA 3</li></a>
+                        <a href="#"><li>PATATA 4</li></a>
+                        <a href="#"><li>PATATA 5</li></a>
+                        <a href="#"><li>PATATA 6</li></a>
+                    </div>
+            </ul>
+        </li></a>
+    </ul>
+
+
+  <!--   <div class="boton">
+        lalala
+    </div>
+    <div class="submenu">
+    <div class="navitem">PEPE1</div>
+    <div class="navitem">PEPE2</div>
+    <div class="navitem">PEPE3</div>
+    <div class="navitem">PEPE4</div>
+    </div> -->
+</nav>
+
+
+<section>
+    <a href="#navar" id="goUp">Volver Arriba</a>
+    <h2>Animacion</h2>
+    <div class="conte" id="s1">
+        <div class="cuadro" id="cAnimado"></div>
+        
+    </div>
+</section>
+
+<section>
+    <a href="#navar" id="goUp">Volver Arriba</a>
+    <h2>Cuadros fijos</h2>
+    <h3>Cuadro 1</h3>
+    <div class="conte" id="s2-1">
+        <div class="cuadro"></div>
+    </div>
+
+
+    <a href="#navar" id="goUp">Volver Arriba</a>
+    <h3>Cuadro 2</h3>
+    <div class="conte" id="s2-2">
+        <div class="cuadro" id="c1"></div>
+    </div>
+
+
+    <a href="#navar" id="goUp">Volver Arriba</a>
+    <h3>Cuadro 3</h3>
+    <div class="conte" id="s2-3">
+        <div class="cuadro"id="c2"></div>
+    </div>
+</section>
+
+<section id="s3">
+    <a href="#navar" id="goUp">Volver Arriba</a>
+    <h2>Experimentos</h2>
+    <div id="tetete">
+        <div id="bata"></div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, harum unde! Hic deleniti in, reiciendis ullam velit deserunt blanditiis quibusdam. Ipsum, officiis. Excepturi, labore doloremque. Dolorum consectetur ullam voluptate aliquam?
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum totam enim, iusto, ex distinctio minus expedita magni eos dolores repellat illo id natus alias nisi debitis soluta adipisci ipsum sed.
+    </div>
+    </section>
+</body>
+</html>
