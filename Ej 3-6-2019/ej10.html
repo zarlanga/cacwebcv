@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ej x</title>
+	<style>
+	body{
+		background-image: url(https://media.tenor.com/images/96abbecd19b93eed75b7a92f46f2330c/tenor.gif);
+		font-size: 30px;
+		color:orange;
+	}
+	</style>
+	<script type="text/javascript">
+	'use strict'
+		//alert(3 =="3");
+	var nombre = prompt("ingrese nombre");
+	var apellido = prompt("ingrese apellido");
+	var materia = prompt("ingrese nombre de la materia");
+	var nota = [prompt("ingrese primer nota"), prompt("ingrese segunda nota"), prompt("ingrese tercer nota")];
+	//alert(nota.length);
+	var notapromedio=0;
+	for (var i = 0; i<nota.length;i++){
+		notapromedio += parseInt(nota[i]);
+
+	}
+	notapromedio /= nota.length;
+	var msg="Nombre y apellido: " + nombre + " " + apellido + "<br>Materia: " + materia + 
+		"<br>Nota Final: " + notapromedio;
+		document.write(msg);
+	</script>
+
+</head>
+<body>
+
+</body>
+</html>
