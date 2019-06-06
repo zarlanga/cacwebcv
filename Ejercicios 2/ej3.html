@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EJ x</title>
+    <script>
+    //Pedir al usuario que ingrese 3 palabras y luego informar cual es la palabra con mayor cantidad de letras junto a la cantidad.
+    var palabras = [];
+    var longitudPalabraLarga = -1;
+    var indicePalabraLarga= -1;
+    var msg="";
+    for(var i = 0; i<3; i++) {
+        palabras[i] = prompt("ingrese palabra");
+        if (longitudPalabraLarga < palabras[i].length){
+            longitudPalabraLarga = palabras[i].length;
+            indicePalabraLarga = i+1;
+        }
+    }
+    msg = "la palabra mas larga es la " + indicePalabraLarga + " <br> y tiene una longitud de " + longitudPalabraLarga + " caracteres";
+    document.write(msg);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

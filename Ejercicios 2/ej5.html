@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EJ x</title>
+    
+    <style>
+    #container {
+        background-color: aqua;
+        width:40vw;
+        /*height:100vh;*/
+    }
+    #output{
+        width:100%;
+        background-color: blue;
+    }
+    .botones{
+        width:25%;
+        background-color: tomato;
+        display:inline-block;
+        padding:10px 0;
+        text-align: center;
+        transition: all 2s;
+    }
+    .botones:hover {
+        color:white;
+        background-color: brown;
+    }
+    </style>
+</head>
+<body>
+
+    <div id="container"><div id="output">1</div>
+    
+    </div>
+
+    <script>
+        /*Realizar una calculadora básica teniendo en cuanta los operadores básicos (suma, resta, división y multiplicación).
+    Deberán utilizar HTML, CSS y JavaScript para la misma.
+    *  Tener en cuenta que sucede si el usuario ingresa un 0 cuando quiere generar la división. Se deberá dar una respuesta en cada caso.*/
+    
+        var cont = document.getElementById("container");
+        var testobot= ["9","8","7","+","6","5","4","-","3","2","1","*","=","=","=","/"]
+        for( var i = 0; i<16;i++){
+            cont.innerHTML += "<span class=\"botones\" id=\"boton"+i+"\">"+testobot[i]+"</span>";
+        }
+
+        
+        </script>
+</body>
+</html>
