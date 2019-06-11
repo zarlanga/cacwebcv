@@ -11,7 +11,12 @@
         background-color: aqua;
         width:40vw;
         /*height:100vh;*/
+		
     }
+	#container h1, #container h3{
+	text-align:center;
+	color:red;
+	}
     #output{
         width:100%;
         background-color: blue;
@@ -34,6 +39,12 @@
 	img {
 	width=100%;
 	
+	}
+	
+	@media screen and (max-width: 800px) {
+		#container {
+		width:100%;
+		}
 	}
     </style>
 </head>
@@ -91,7 +102,9 @@
 					readyOperator = false;
 				}
 			} else {
-				if (readyOperator)	calculear();
+				if (readyOperator)calculear();
+				
+				
 			}
 		}
 		
@@ -106,6 +119,7 @@
 			
 			ou.innerHTML=total;
 			resetOutput=true;
+			readyOperator=false;
 			
 		
 		}
@@ -150,7 +164,7 @@
 					if (div[i] != 0 ){
 						ret /= div[i];
 					} else{
-					document.getElementById("container").innerHTML = "<h1 style=\"color:red;\">Si dividis por 0</h1><img src=\"https://memegenerator.net/img/images/300x300/12135149.jpg\" style=\"width:100%\";> <h3> apretar actualizar <h3>";
+					document.getElementById("container").innerHTML = "<h1 >Si dividis por 0</h1><img src=\"https://memegenerator.net/img/images/300x300/12135149.jpg\" style=\"width:100%\";> <h3> apretar actualizar <h3>";
 					 //alert("imposible dividir por 0");
 					}
 				}
