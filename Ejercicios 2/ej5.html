@@ -31,6 +31,10 @@
         color:white;
         background-color: brown;
     }
+	img {
+	width=100%;
+	
+	}
     </style>
 </head>
 <body>
@@ -146,7 +150,8 @@
 					if (div[i] != 0 ){
 						ret /= div[i];
 					} else{
-					 alert("imposible dividir por 0");
+					document.getElementById("container").innerHTML = "<h1 style=\"color:red;\">Si dividis por 0</h1><img src=\"https://memegenerator.net/img/images/300x300/12135149.jpg\" style=\"width:100%\";> <h3> apretar actualizar <h3>";
+					 //alert("imposible dividir por 0");
 					}
 				}
 			}
