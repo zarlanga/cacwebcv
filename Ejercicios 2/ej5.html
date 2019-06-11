@@ -15,6 +15,9 @@
     #output{
         width:100%;
         background-color: blue;
+		padding: 10px 0;
+		color: white;
+		text-align:center;
     }
     .botones{
         width:25%;
@@ -32,7 +35,10 @@
 </head>
 <body>
 
-    <div id="container"><div id="output">1</div>
+    <div id="container">
+		<div id="output"> 
+		Ready
+		</div>
     
     </div>
 
@@ -42,12 +48,154 @@
     *  Tener en cuenta que sucede si el usuario ingresa un 0 cuando quiere generar la división. Se deberá dar una respuesta en cada caso.*/
     
         var cont = document.getElementById("container");
-        var testobot= ["9","8","7","+","6","5","4","-","3","2","1","*","=","=","=","/"]
+        var testobot= ["9","8","7","+","6","5","4","-","3","2","1","*","0",".","=","/"]
         for( var i = 0; i<16;i++){
-            cont.innerHTML += "<span class=\"botones\" id=\"boton"+i+"\">"+testobot[i]+"</span>";
-        }
-
-        
+            cont.innerHTML += "<span class=\"botones\" id=\"boton"+i+"\" onclick=\"apretarBoton(this);\">"+testobot[i]+"</span>";
+			//document.getElementById("boton"+i).onclick = function(){
+			//	alert("concha");
+			//};
+		}
+		
+		var ou = document.getElementById("output");
+		var readyOperator = false;
+		var readyDot = true;
+		var resetOutput= true;
+		//var suma = [];
+		//var resta = [];
+		//var multi = [];
+		//var divi = [];
+		        
+		function apretarBoton(ele){
+			var tecla= ele.innerHTML;
+		
+			if(tecla != "="){
+				if (RegExp('[0-9]').test(tecla) ){
+				//alert("pepe");
+				readyOperator=true;
+				escribirOut(tecla);
+				} else if (tecla == "."){
+				//alert("nopepe");
+					if(readyDot){
+						escribirOut(tecla);
+					}
+				readyDot = false;
+				} else{
+					if(readyOperator){
+						escribirOut(tecla);
+						readyDot=true;
+					}
+					readyOperator = false;
+				}
+			} else {
+				if (readyOperator)	calculear();
+			}
+		}
+		
+		function calculear(){
+			var total = 0;
+			var suma = ou.innerHTML.split('+');
+			for( var i = 0; i < suma.length; i++) {
+			//console.log(suma[i]);
+			suma[i] = restar(suma[i]);
+			total += parseFloat(suma[i]);
+			}
+			
+			ou.innerHTML=total;
+			resetOutput=true;
+			
+		
+		}
+		
+		function restar(str) {
+			var ret = 0;
+			var rest = str.split('-');
+			for( var i = 0; i < rest.length; i++){
+				if (i ==0){
+					rest[i] = multiplicar(rest[i]);
+					ret = parseFloat(rest[i]);
+				} else {
+					rest[i] = multiplicar(rest[i]);
+					ret -= parseFloat(rest[i]);
+				}
+			}
+			return ret;
+		}
+		
+		function multiplicar(str){
+			var ret = 0;
+			var mult= str.split('*');
+			for( var i = 0; i < mult.length; i++){
+				if (i ==0){
+					mult[i] = dividir(mult[i]);
+					ret = parseFloat(mult[i]);
+				} else {
+					mult[i] = dividir(mult[i]);
+					ret *= parseFloat(mult[i]);
+				}
+			}
+			return ret;
+		}
+		
+		function dividir(str){
+			var ret = 0;
+			var div = str.split('/');
+			for( var i = 0; i < div.length; i++){
+				if(i==0){
+				ret = parseFloat(div[i]);
+				} else{
+					if (div[i] != 0 ){
+						ret /= div[i];
+					} else{
+					 alert("imposible dividir por 0");
+					}
+				}
+			}
+			return ret;
+		}
+		
+		function escribirOut(cha){
+				if(resetOutput){
+					ou.innerHTML=cha;
+					resetOutput=false;
+				}else {
+					ou.innerHTML += cha;
+				}
+		}
+		
+	/******algoritmo afanado	
+		// calculate es un objeto dentro de control
+	// realiza todas las operaciones matemáticas pedidas por el usuario
+	calculate: {
+		// inicia los cálculos e imprime en el visor el resultado
+		init: function(c) {
+			calculator.view.updateScreen(this.add(c));
+		},
+		// realiza las sumas que haya en las operaciones ingresadas
+		add: function(c) {
+			var i, add = c.split('+'), total = 0;
+			for (i = 0; i < add.length; i++) total += this.sub(add[i]);
+			return total;
+		},
+		// realiza las restas que haya en las operaciones ingresadas
+		sub: function(c) {
+			var i, sub = c.split('-'), total = 0;
+			for (i = 0; i < sub.length; i++) total = (i === 0) ? this.mult(sub[i]) : total - this.mult(sub[i]);
+			return total;
+		},
+		// realiza las multiplicaciones que haya en las operaciones ingresadas
+		mult: function(c) {
+			var i, mult = c.split('x'), total = 0;
+			for (i = 0; i < mult.length; i++) total = (i === 0) ? this.div(mult[i]) : total * this.div(mult[i]);
+			return total;
+		},
+		// realiza las divisiones que haya en las operaciones ingresadas
+		div: function(c) {
+			var i, div = c.split(/÷/), total = 0;
+			for (i = 0; i < div.length; i++) total = (i === 0) ? parseFloat(div[i]) : total / parseFloat(div[i]);
+			return total;
+		}
+	}*/
+		
         </script>
 </body>
 </html>
