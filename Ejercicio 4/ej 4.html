@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <p>Ingrese nombre del producto<input type="text" id="nom"/></p>
+    <p>Ingrese precio del producto<input type="number" id="pre"/></p>
+    <button onclick="grabar()">Guardar Item</button><br>
+    <button onclick="eliminar()">Eliminar Item</button><br>
+    <button onclick="eliminarTodo()">Eliminar todo</button><br>
+    <button onclick="mostrar()">Mostrar</button><br>
+
+    <script>
+        var cont =0
+    function grabar(){
+        //alert( $("#nom").val());
+        let obje = {nombre: $("#nom").val(), precio: $("#pre").val()  }
+        //alert(obje.precio);
+        localStorage.setItem( $("#nom").val(), JSON.stringify(  obje)  );
+        //localStorage.setItem($("#nom").val, {nombre: $("#nom").val, precio: $("#pre").val });
+        //console.log(localStorage.getItem($("#nom").val));
+        
+    }
+
+    function eliminar(){
+        localStorage.removeItem($("#nom").val());
+    }
+
+    function mostrar() {
+        var item = JSON.parse(localStorage.getItem($("#nom").val()))
+        alert(item.precio);
+    }
+
+    function eliminarTodo() {
+        localStorage.clear();
+    }
+    </script>
+</body>
+</html>
