@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+</head>
+<body>
+    <div class='importante'>
+
+    </div>
+    
+    <script>
+        var voc=0;
+        var cons=0;
+        var palabra= prompt("ingrese palabra");
+        palabra= palabra.trim().toLowerCase();
+        alert(palabra);
+        for (var i=0; i<palabra.length;i++){
+            //if (palabra.charAt(i) == /[aeiou]/) voc++;
+            //if (RegExp('[0-9]').test(palabra.substr(i,1))) voc++;
+            if (RegExp('[aeiou]').test(palabra.charAt(i))) {
+                voc++;
+            } else if (RegExp('[a-z]').test(palabra.charAt(i))) {
+                cons++;
+            }
+            
+        } 
+        
+        //alert(voc);
+        $(".importante").append("<p>Las vocales son: " + voc +"</p>")
+        .append("<p>Las consonantes son " + cons +"</p>")
+        .append("<p>La longitud de la palabra es " +palabra.length + "<p>");
+
+    </script>
+</body>
+</html>
